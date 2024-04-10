@@ -15,4 +15,9 @@
     <address>Quảng Nam</address>
     <dateOfBirth>2005-04-13</dateOfBirth>
   </student>
+  <student id="4">
+    <name>Diệp Mạnh Tuấn</name>
+    <address>Quảng Nam</address>
+    <dateOfBirth>2005-05-11</dateOfBirth>
+  </student>
 </students>

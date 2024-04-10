@@ -5,13 +5,19 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.security.spec.KeySpec;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import javax.crypto.Cipher;
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
+import javax.crypto.spec.SecretKeySpec;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -23,6 +29,8 @@ import org.xml.sax.SAXException;
 
 public class Main {
     private static final String FILE_PATH = "kq.xml";
+    private static final String AES_ALGORITHM = "AES";
+    private static final String ENCRYPTION_KEY = "encryptionKey12345"; // Key for encryption, you should use a secure key generation method.
 
     public static void main(String[] args) {
         ExecutorService executor = Executors.newFixedThreadPool(3);
@@ -50,6 +58,15 @@ public class Main {
         try {
             List<Student> decodedStudents = xmlWriter.readResultFromFile();
             for (Student student : decodedStudents) {
+                System.out.println(student);
+            }
+        } catch (IOException | NoSuchAlgorithmException | ParserConfigurationException | SAXException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Sau khi mã hóa dữ liệu ");
+        try {
+            List<Student> decodedStudentss = xmlWriter.readResultFromFile1();
+            for (Student student : decodedStudentss) {
                 System.out.println(student);
             }
         } catch (IOException | NoSuchAlgorithmException | ParserConfigurationException | SAXException e) {
@@ -105,11 +122,7 @@ public class Main {
             int days = period.getDays();
             String ageString = years + "" + months + "" + days;
 
-            try {
-                this.hashedAge = HashBirth(ageString);
-            } catch (NoSuchAlgorithmException e) {
-                e.printStackTrace();
-            }
+            this.hashedAge = HashBirth(ageString);
         }
 
         private void calculateSumOfDigits() {
@@ -122,7 +135,6 @@ public class Main {
             }
             this.sumOfDigits = sum;
         }
-
 
         public void setHashedAge(String hashedAge) {
             this.hashedAge = hashedAge;
@@ -242,17 +254,82 @@ public class Main {
 
             return students;
         }
+        public List<Student> readResultFromFile1() throws IOException, NoSuchAlgorithmException, ParserConfigurationException, SAXException {
+            List<Student> students = new ArrayList<>();
+            File file = new File(FILE_PATH);
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            try {
+                DocumentBuilder builder = factory.newDocumentBuilder();
+                Document document = builder.parse(file);
+
+                NodeList studentList = document.getElementsByTagName("student");
+                for (int i = 0; i < studentList.getLength(); i++) {
+                    Element studentElement = (Element) studentList.item(i);
+                    String id = studentElement.getElementsByTagName("id").item(0).getTextContent();
+                    String name = studentElement.getElementsByTagName("name").item(0).getTextContent();
+                    String address = studentElement.getElementsByTagName("address").item(0).getTextContent();
+                    String dateOfBirth = studentElement.getElementsByTagName("dateOfBirth").item(0).getTextContent();
+                    String encryptedHashedAge = studentElement.getElementsByTagName("hashedAge").item(0).getTextContent();
+                    String hashedAge = decryptData(encryptedHashedAge);
+                    int sumOfDigits = Integer.parseInt(studentElement.getElementsByTagName("sumOfDigits").item(0).getTextContent());
+                    boolean isPrime = Boolean.parseBoolean(studentElement.getElementsByTagName("isPrime").item(0).getTextContent());
+
+                    Student student = new Student(id, name, address, dateOfBirth);
+                    student.setHashedAge(hashedAge);
+                    student.setSumOfDigits(sumOfDigits);
+                    student.setPrime(isPrime);
+
+                    students.add(student);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return students;
+        }
     }
 
-    private static String HashBirth(String input) throws NoSuchAlgorithmException {
-        MessageDigest digest = MessageDigest.getInstance("SHA-256");
-        byte[] hashedBytes = digest.digest(input.getBytes());
 
-        StringBuilder stringBuilder = new StringBuilder();
-        for (byte b : hashedBytes) {
-            stringBuilder.append(String.format("%02x", b));
+//    private static String HashBirth(String input) throws NoSuchAlgorithmException {
+//        MessageDigest digest = MessageDigest.getInstance("SHA-256");
+//        byte[] hashedBytes = digest.digest(input.getBytes());
+//
+//        StringBuilder stringBuilder = new StringBuilder();
+//        for (byte b : hashedBytes) {
+//            stringBuilder.append(String.format("%02x", b));
+//        }
+//
+//        return stringBuilder.toString();
+//    }
+    // mã hóa dữ liệu
+    public static String HashBirth(String data) {
+        try {
+            // Chỉ lấy 16 ký tự đầu của khóa nếu khóa dài hơn 16 ký tự
+            byte[] keyBytes = ENCRYPTION_KEY.substring(0, 16).getBytes();
+            SecretKeySpec key = new SecretKeySpec(keyBytes, AES_ALGORITHM);
+
+            Cipher cipher = Cipher.getInstance(AES_ALGORITHM);
+            cipher.init(Cipher.ENCRYPT_MODE, key);
+            byte[] encryptedBytes = cipher.doFinal(data.getBytes());
+            return Base64.getEncoder().encodeToString(encryptedBytes);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+        return null;
+    }
 
-        return stringBuilder.toString();
+    // giải mã hóa dữ liệu
+    public static String decryptData(String encryptedData) {
+        try {
+            byte[] keyBytes = ENCRYPTION_KEY.substring(0, 16).getBytes();
+            SecretKeySpec key = new SecretKeySpec(keyBytes, AES_ALGORITHM);
+
+            Cipher cipher = Cipher.getInstance(AES_ALGORITHM);
+            cipher.init(Cipher.DECRYPT_MODE, key);
+            byte[] decryptedBytes = cipher.doFinal(Base64.getDecoder().decode(encryptedData));
+            return new String(decryptedBytes);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

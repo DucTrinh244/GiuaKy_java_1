@@ -5,7 +5,7 @@
 <name>Hoàng Đức Trình</name>
 <address>Quảng Trị</address>
 <dateOfBirth>2005-04-24</dateOfBirth>
-<hashedAge>9ba547072e38495c40268a37a32d5a44d0da57fd31f945ad31a2ee669be6a3da</hashedAge>
+<hashedAge>N3PHgivURUQ254+43ZK6iA==</hashedAge>
 <sumOfDigits>17</sumOfDigits>
 <isPrime>true</isPrime>
 </student>
@@ -14,7 +14,7 @@
 <name>Phan Thị Kim Oanh</name>
 <address>Quảng trị</address>
 <dateOfBirth>2005-02-27</dateOfBirth>
-<hashedAge>eae6a30bae448622a96347eb0bd117623c225dcb72e062d5200870e5b1669264</hashedAge>
+<hashedAge>7o+rw9tv3PI+77pPg1Zq6w==</hashedAge>
 <sumOfDigits>18</sumOfDigits>
 <isPrime>false</isPrime>
 </student>
@@ -23,8 +23,17 @@
 <name>Nguyễn Thị Tố Trinh</name>
 <address>Quảng Nam</address>
 <dateOfBirth>2005-04-13</dateOfBirth>
-<hashedAge>9081745c1f6ebcfab9dc0f1898802390e6fb4fba80bd220723b392de0437170b</hashedAge>
+<hashedAge>da7RrMN6Wqv4tDiBs5qmlw==</hashedAge>
 <sumOfDigits>15</sumOfDigits>
+<isPrime>false</isPrime>
+</student>
+<student>
+<id>4</id>
+<name>Diệp Mạnh Tuấn</name>
+<address>Quảng Nam</address>
+<dateOfBirth>2005-05-11</dateOfBirth>
+<hashedAge>IYU+Mjb1XdwcJPN+Ojt3Kw==</hashedAge>
+<sumOfDigits>14</sumOfDigits>
 <isPrime>false</isPrime>
 </student>
 </results>

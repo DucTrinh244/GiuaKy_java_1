@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68d921c6-4288-442e-a9d5-b3651aa946a1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Test/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Test/EncryptionUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Test/Student.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kq.xml" beforeDir="false" afterPath="$PROJECT_DIR$/kq.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/INCLASS/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/INCLASS/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/INCLASS/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/INCLASS/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/INCLASS/Thread2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/INCLASS/Thread2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Test/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student.xml" beforeDir="false" afterPath="$PROJECT_DIR$/student.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +27,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/Test/Main.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -40,6 +43,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.EncryptionUtils.executor": "Run",
     "Application.Main.executor": "Run",
     "Application.Student.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -52,12 +56,16 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "editor.preferences.tabs",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\HOCTAP\LAPTRINHHUONGDOITUONG\JAVA_intellij_WebApplication\GiuaKy\src" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Test" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -76,7 +84,8 @@
       <option name="presentableId" value="Default" />
       <updated>1712723342456</updated>
       <workItem from="1712723343538" duration="297000" />
-      <workItem from="1712723651159" duration="2717000" />
+      <workItem from="1712723651159" duration="3622000" />
+      <workItem from="1712727351688" duration="2086000" />
     </task>
     <servers />
   </component>
