@@ -1,12 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <results>
-<age>null</age>
-<age>null</age>
-<age>null</age>
-<sum>0</sum>
+<student>
+<id>1</id>
+<name>Hoàng Đức Trình</name>
+<address>Quảng Trị</address>
+<dateOfBirth>2005-04-24</dateOfBirth>
+<hashedAge>9ba547072e38495c40268a37a32d5a44d0da57fd31f945ad31a2ee669be6a3da</hashedAge>
+<sumOfDigits>17</sumOfDigits>
+<isPrime>true</isPrime>
+</student>
+<student>
+<id>2</id>
+<name>Phan Thị Kim Oanh</name>
+<address>Quảng trị</address>
+<dateOfBirth>2005-02-27</dateOfBirth>
+<hashedAge>eae6a30bae448622a96347eb0bd117623c225dcb72e062d5200870e5b1669264</hashedAge>
+<sumOfDigits>18</sumOfDigits>
 <isPrime>false</isPrime>
-<sum>18</sum>
+</student>
+<student>
+<id>3</id>
+<name>Nguyễn Thị Tố Trinh</name>
+<address>Quảng Nam</address>
+<dateOfBirth>2005-04-13</dateOfBirth>
+<hashedAge>9081745c1f6ebcfab9dc0f1898802390e6fb4fba80bd220723b392de0437170b</hashedAge>
+<sumOfDigits>15</sumOfDigits>
 <isPrime>false</isPrime>
-<sum>0</sum>
-<isPrime>false</isPrime>
+</student>
 </results>
