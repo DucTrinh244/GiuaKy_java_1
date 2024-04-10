@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<students>
+  <student id="1">
+    <name>Hoàng Đức Trình</name>
+    <address>Quảng Trị</address>
+    <dateOfBirth>2005-04-24</dateOfBirth>
+  </student>
+  <student id="2">
+    <name>Phan Thị Kim Oanh</name>
+    <address>Quảng trị</address>
+    <dateOfBirth>2005-02-27</dateOfBirth>
+  </student>
+  <student id="3">
+    <name>Nguyễn Thị Tố Trinh</name>
+    <address>Quảng Nam</address>
+    <dateOfBirth>2005-04-13</dateOfBirth>
+  </student>
+</students>
